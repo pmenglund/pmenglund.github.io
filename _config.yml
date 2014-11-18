@@ -1,0 +1,13 @@
+# Site settings
+title: Martin Englund's Blog
+email: martin@englund.nu
+quote: The question is not if you are paranoid, it is if you are paranoid enough.
+description: > # this means to ignore newlines until "baseurl:"
+  Random ramblings of a paranoid automaton currently working at Facebook.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://blog.englund.nu" # the base hostname & protocol for your site
+twitter_username: pmenglund
+github_username:  pmenglund
+
+# Build settings
+markdown: kramdown
