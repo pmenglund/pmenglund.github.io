@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to my new blog!"
 date:   2014-11-17 15:19:13
-categories: github ruby
+categories: 
 ---
 I've been blogging since I worked at [Sun Microsystems](http://en.wikipedia.org/wiki/Sun_Microsystems) and we setup [blog.sun.com](https://blogs.oracle.com/martin/), and after abandoning the sinking ship when the Oracle behemoth [swallowed it](http://www.oracle.com/us/sun/index.html), I've kept my blog going in a couple of places as [blog.codenursery.com](http://blog.codenursery.com/). The time has come to move it yet another time, and hopefully for the last in a couple of years.
 
