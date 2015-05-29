@@ -87,20 +87,16 @@ in printing a "hello world" message in.
 
 First create a file called `hello.rb`
 
-```
-puts "hello world from Ruby #{RUBY_VERSION}!"
-```
+    puts "hello world from Ruby #{RUBY_VERSION}!"
 
 Next create `count.d` which will count the number of times a new object is created, grouped by the class.
 The `copyinstr()` is needed to convert `arg0`, which is the class name, from user space to kernel space where
 the DTrace probes are run.
 
-```
-ruby*:::object-create
-{
-    @objects[copyinstr(arg0)] = count();
-}
-```
+    ruby*:::object-create
+    {
+        @objects[copyinstr(arg0)] = count();
+    }
 
 If you forget to use `copyinstr()`, you'll get a number like `140576469837096` instead of `String`.
 
