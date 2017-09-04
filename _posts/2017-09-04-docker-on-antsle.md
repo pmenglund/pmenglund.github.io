@@ -14,9 +14,9 @@ If you want to run docker on antsleOS you need to make some minor modifications.
 
 Note the this will let *anyone* on your local network to access it, but since I'm using it at home behind a firewall and for testing only, it is ok for now. I will set it up with [TLS](https://docs.docker.com/engine/security/https/) later.
 
-You also need to start the docker daemon, as it isn't done by default.
+You also need to start the docker daemon, as it isn't done by default
 
-  service docker start
+    service docker start
 
 And if you want the daemon to always start on reboot, run
 
