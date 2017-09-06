@@ -10,7 +10,7 @@ I was pleasantly surprised to see that they have pre-configered it with the [ZFS
 
 If you want to run docker on antsleOS you need to make some minor modifications. By default docker is only available when you are logged in (as it binds to `fd://var/run/docker.sock`), so if you want to be able to use docker on your laptop and have it communicate with the `dockerd` running on your antsle, you need to edit `/etc/conf.d/docker` and make the docker daemon socket bind to the network interfaces
 
-	DOCKER_OPTS="-H tcp://0.0.0.0:2376"
+	DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
 
 Note the this will let *anyone* on your local network to access it, but since I'm using it at home behind a firewall and for testing only, it is ok for now. I will set it up with [TLS](https://docs.docker.com/engine/security/https/) later.
 
