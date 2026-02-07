@@ -1,0 +1,30 @@
+baseURL: https://blog.englund.nu/
+languageCode: en-us
+title: Martin Englund's Blog
+defaultContentLanguage: en
+enableRobotsTXT: true
+
+taxonomies:
+  category: categories
+  tag: tags
+
+permalinks:
+  posts: /:year/:month/:day/:slug/
+
+pagination:
+  pagerSize: 10
+
+caches:
+  images:
+    dir: :cacheDir/images
+
+params:
+  email: martin@englund.nu
+  quote: The question is not if you are paranoid, it is if you are paranoid enough.
+  description: Random ramblings of a paranoid automaton working at OpenAI.
+  github: pmenglund
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

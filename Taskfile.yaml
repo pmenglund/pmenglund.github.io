@@ -1,0 +1,46 @@
+version: '3'
+
+vars:
+  HUGO_CMD:
+    sh: |
+      if command -v hugo >/dev/null 2>&1; then
+        echo hugo
+      else
+        echo "go run github.com/gohugoio/hugo@latest"
+      fi
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task --list
+
+  serve:
+    desc: Run local development server with drafts
+    cmds:
+      - "{{.HUGO_CMD}} server --buildDrafts --disableFastRender"
+
+  build:
+    desc: Build static site into ./public
+    cmds:
+      - "{{.HUGO_CMD}} --minify"
+
+  new:
+    desc: Create a new published post (task new NAME=my-post)
+    requires:
+      vars: [NAME]
+    cmds:
+      - "{{.HUGO_CMD}} new content posts/{{.NAME}}.md"
+      - "sed -i '' 's/^draft: true$/draft: false/' content/posts/{{.NAME}}.md"
+
+  new-draft:
+    desc: Create a new draft post (task new-draft NAME=my-post)
+    requires:
+      vars: [NAME]
+    cmds:
+      - "{{.HUGO_CMD}} new content posts/{{.NAME}}.md"
+
+  clean:
+    desc: Remove generated output directories
+    cmds:
+      - rm -rf public resources/_gen

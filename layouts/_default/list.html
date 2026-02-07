@@ -1,0 +1,26 @@
+{{ define "main" }}
+  <h1 class="page-title">{{ if .IsHome }}Latest Posts{{ else }}{{ .Title }}{{ end }}</h1>
+  <section class="post-list{{ if .IsHome }} post-list--magazine{{ end }}">
+  {{ range $index, $post := .Paginator.Pages }}
+    <article class="post-list-item{{ if and $.IsHome (eq $index 0) }} is-featured{{ end }}">
+      <div class="post-list-meta">
+        <time class="meta-chip" datetime="{{ $post.Date.Format "2006-01-02" }}">{{ $post.Date.Format "2006-01-02" }}</time>
+        {{ with $post.Params.categories }}
+          {{ range first 2 . }}
+            <span class="meta-chip meta-chip--cat">{{ . }}</span>
+          {{ end }}
+        {{ end }}
+      </div>
+      <h2><a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a></h2>
+      <p class="excerpt">{{ $post.Plain | truncate 260 }}</p>
+    </article>
+  {{ else }}
+    <p>No posts yet.</p>
+  {{ end }}
+  </section>
+
+  <nav class="pager">
+    {{ with .Paginator.Prev }}<a href="{{ .URL }}">Newer</a>{{ end }}
+    {{ with .Paginator.Next }}<a href="{{ .URL }}">Older</a>{{ end }}
+  </nav>
+{{ end }}

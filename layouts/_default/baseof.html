@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body class="kind-{{ .Kind }}{{ with .Section }} section-{{ . }}{{ end }}">
+    <header class="site-header">
+      <div class="container">
+        <a class="site-title" href="/">{{ site.Title }}</a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="/about/">About</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container site-main">
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <h2 class="footer-quote"><i>"{{ site.Params.quote }}"</i></h2>
+        <div class="footer-grid">
+          <section>
+            <h3>Contact</h3>
+            <p>Martin Englund</p>
+            <p><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <p><a href="https://github.com/{{ site.Params.github }}">github.com/{{ site.Params.github }}</a></p>
+          </section>
+          <section>
+            <h3>About This Blog</h3>
+            <p>{{ site.Params.description }}</p>
+          </section>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
