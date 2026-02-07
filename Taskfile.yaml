@@ -31,7 +31,7 @@ tasks:
       vars: [NAME]
     cmds:
       - "{{.HUGO_CMD}} new content posts/{{.NAME}}.md"
-      - "sed -i '' 's/^draft: true$/draft: false/' content/posts/{{.NAME}}.md"
+      - "sed -i '' -E 's/^draft([[:space:]]*[:=][[:space:]]*)true$/draft\\1false/' content/posts/{{.NAME}}.md"
 
   new-draft:
     desc: Create a new draft post (task new-draft NAME=my-post)
