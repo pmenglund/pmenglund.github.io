@@ -1,7 +1,7 @@
 ---
 title:  "How I use /reflect and /retrospective with Codex"
 slug: keep-codex-prompts-and-instructions-in-one-repo
-date:   2026-02-28 20:30:00
+date:   2026-02-27 20:20:00
 draft: false
 categories: ["ai", "codex", "workflow"]
 ---
