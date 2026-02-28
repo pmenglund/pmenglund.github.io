@@ -38,5 +38,23 @@
         </div>
       </div>
     </footer>
+    {{ with site.Params.statcounter }}
+      <script>
+        var sc_project = {{ .project }};
+        var sc_invisible = {{ .invisible }};
+        var sc_security = "{{ .security }}";
+      </script>
+      <script src="https://www.statcounter.com/counter/counter.js" async></script>
+      <noscript>
+        <div class="statcounter">
+          <a title="free hit counter" href="https://statcounter.com/" target="_blank" rel="noopener noreferrer">
+            <img
+              class="statcounter"
+              src="https://c.statcounter.com/{{ .project }}/0/{{ .security }}/{{ .invisible }}/"
+              alt="free hit counter" />
+          </a>
+        </div>
+      </noscript>
+    {{ end }}
   </body>
 </html>

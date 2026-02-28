@@ -9,4 +9,28 @@
     {{ end }}
     {{ .Content }}
   </article>
+  {{ if eq .Section "posts" }}
+    {{ with site.Params.disqus.shortname }}
+      <section class="post-comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+      </section>
+      <script>
+        var disqus_config = function () {
+          this.page.url = "{{ $.Permalink }}";
+          this.page.identifier = "{{ $.RelPermalink }}";
+        };
+
+        (function () {
+          var d = document, s = d.createElement("script");
+          s.src = "https://{{ . }}.disqus.com/embed.js";
+          s.setAttribute("data-timestamp", +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>
+        Please enable JavaScript to view the comments powered by Disqus.
+      </noscript>
+    {{ end }}
+  {{ end }}
 {{ end }}

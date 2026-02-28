@@ -23,6 +23,12 @@ params:
   quote: The question is not if you are paranoid, it is if you are paranoid enough.
   description: Random ramblings of a paranoid automaton working at OpenAI.
   github: pmenglund
+  disqus:
+    shortname: englund
+  statcounter:
+    project: 10142086
+    invisible: 1
+    security: c6ac11db
 
 markup:
   goldmark:
