@@ -15,6 +15,41 @@ It saves structured JSON under `~/.codex/reflection/YYYY/MM/DD/` and captures wh
 
 I like that format because it is machine-readable and consistent, so later analysis is fast and does not depend on how tired I was when I wrote notes.
 
+A shortened example looks like this:
+
+```json
+{
+  "session_id": "abc123",
+  "session_end_iso": "2026-02-27T04:11:22Z",
+  "summary_one_liner": "Fixed post date and clarified publishing checklist",
+  "root_causes": [
+    "Post date was in the future, so Hugo excluded it",
+    "No explicit pre-publish date check in repo instructions"
+  ],
+  "top_instruction_debts": [
+    {
+      "surface": "AGENTS",
+      "problem": "Missing clear publish checklist",
+      "best_fix": "Add a pre-publish checklist with date validation",
+      "confidence": "high"
+    }
+  ],
+  "concrete_improvements": [
+    {
+      "type": "guardrail",
+      "surface": "AGENTS",
+      "classification": "repo_specific",
+      "description": "Require task build and homepage visibility check before push",
+      "priority": "P0"
+    }
+  ],
+  "metadata": {
+    "persistence_path": "/Users/pme/.codex/reflection/2026/02/27/041122145Z.json",
+    "persistence_status": "saved"
+  }
+}
+```
+
 Once I have enough sessions, I run `/retrospective` (usually weekly).
 
 That prompt reads the saved reflections for a time window and highlights recurring instruction debt instead of one-off noise.
